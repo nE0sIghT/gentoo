@@ -46,7 +46,7 @@ DEPEND="${RDEPEND}
 QA_TEXTRELS="usr/lib32/pcsx2/*"
 
 clean_locale() {
-	rm -Rf "${S}"/locales/"${1}" || die
+	rm -R "${S}"/locales/"${1}" || die
 }
 
 pkg_setup() {
