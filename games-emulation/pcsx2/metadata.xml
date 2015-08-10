@@ -10,4 +10,8 @@
 		<flag name="png">Allow to dump texture as PNG (require <pkg>dev-cpp/pngpp</pkg>)</flag>
 		<flag name="wxwidgets3">Link against version 3.0 of <pkg>x11-libs/wxGTK</pkg> instead of 2.8</flag>
 	</use>
+	<upstream>
+		<bugs-to>https://github.com/PCSX2/pcsx2/issues</bugs-to>
+		<remote-id type="github">PCSX2/pcsx2</remote-id>
+	</upstream>
 </pkgmetadata>
