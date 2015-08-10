@@ -34,8 +34,9 @@ RDEPEND="
 	!wxwidgets3? ( x11-libs/wxGTK:2.8[abi_x86_32(-),X] )
 	wxwidgets3? ( x11-libs/wxGTK:3.0[abi_x86_32(-),X] )
 "
+# Ensure no incompatible headers from eselect-opengl are installed, bug #510730
 DEPEND="${RDEPEND}
-	!<app-eselect/eselect-opengl-1.3.1
+	>=app-eselect/eselect-opengl-1.3.1
 	>=dev-cpp/sparsehash-1.5
 	!<sys-devel/gcc-4.7
 "
