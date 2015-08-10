@@ -7,15 +7,13 @@ PLOCALES="ar_SA ca_ES cs_CZ de_DE es_ES fi_FI fr_FR hr_HR hu_HU id_ID it_IT ja_J
 
 inherit cmake-utils l10n multilib wxwidgets
 
-KEYWORDS="-* ~amd64 ~x86"
-SRC_URI="https://github.com/PCSX2/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-
 DESCRIPTION="A PlayStation 2 emulator"
 HOMEPAGE="http://www.pcsx2.net"
+SRC_URI="https://github.com/PCSX2/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-
+KEYWORDS="-* ~amd64 ~x86"
 IUSE="+wxwidgets3"
 
 RDEPEND="

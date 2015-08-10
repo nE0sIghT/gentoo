@@ -13,7 +13,6 @@ EGIT_REPO_URI="git://github.com/PCSX2/pcsx2.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-
 IUSE="png +wxwidgets3"
 
 RDEPEND="
