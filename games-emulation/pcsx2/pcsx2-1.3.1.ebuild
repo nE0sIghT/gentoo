@@ -17,22 +17,22 @@ KEYWORDS="-* ~amd64 ~x86"
 IUSE="+wxwidgets3"
 
 RDEPEND="
-	app-arch/bzip2[abi_x86_32]
-	dev-libs/libaio[abi_x86_32]
-	media-libs/alsa-lib[abi_x86_32]
-	media-libs/libsdl[abi_x86_32,joystick,sound]
-	media-libs/portaudio[abi_x86_32]
-	media-libs/libsoundtouch[abi_x86_32]
-	virtual/opengl[abi_x86_32]
-	>=sys-libs/zlib-1.2.4[abi_x86_32]
-	virtual/jpeg:62[abi_x86_32]
-	x11-libs/gtk+:2[abi_x86_32]
-	x11-libs/libICE[abi_x86_32]
-	x11-libs/libX11[abi_x86_32]
-	x11-libs/libXext[abi_x86_32]
+	app-arch/bzip2[abi_x86_32(-)]
+	dev-libs/libaio[abi_x86_32(-)]
+	media-libs/alsa-lib[abi_x86_32(-)]
+	media-libs/libsdl[abi_x86_32(-),joystick,sound]
+	media-libs/portaudio[abi_x86_32(-)]
+	media-libs/libsoundtouch[abi_x86_32(-)]
+	virtual/opengl[abi_x86_32(-)]
+	>=sys-libs/zlib-1.2.4[abi_x86_32(-)]
+	virtual/jpeg:62[abi_x86_32(-)]
+	x11-libs/gtk+:2[abi_x86_32(-)]
+	x11-libs/libICE[abi_x86_32(-)]
+	x11-libs/libX11[abi_x86_32(-)]
+	x11-libs/libXext[abi_x86_32(-)]
 
-	!wxwidgets3? ( x11-libs/wxGTK:2.8[abi_x86_32,X] )
-	wxwidgets3? ( x11-libs/wxGTK:3.0[abi_x86_32,X] )
+	!wxwidgets3? ( x11-libs/wxGTK:2.8[abi_x86_32(-),X] )
+	wxwidgets3? ( x11-libs/wxGTK:3.0[abi_x86_32(-),X] )
 "
 DEPEND="${RDEPEND}
 	!<app-eselect/eselect-opengl-1.3.1
