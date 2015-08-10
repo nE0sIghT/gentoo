@@ -95,7 +95,7 @@ src_configure() {
 		# wxGTK must be built against same sdl version
 		-DSDL2_API=FALSE
 
-		$(cmake-utils_useno wxwidgets3 DWX28_API)
+		$(cmake-utils_useno wxwidgets3 WX28_API)
 	)
 
 	local WX_GTK_VER="3.0"
