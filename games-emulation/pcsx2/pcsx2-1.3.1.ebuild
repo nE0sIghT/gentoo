@@ -5,7 +5,7 @@
 EAPI=5
 PLOCALES="ar_SA ca_ES cs_CZ de_DE es_ES fi_FI fr_FR hr_HR hu_HU id_ID it_IT ja_JP ko_KR ms_MY nb_NO pl_PL pt_BR ru_RU sv_SE th_TH tr_TR zh_CN zh_TW"
 
-inherit cmake-utils l10n multilib wxwidgets
+inherit cmake-utils l10n multilib toolchain-funcs wxwidgets
 
 DESCRIPTION="A PlayStation 2 emulator"
 HOMEPAGE="http://www.pcsx2.net"
@@ -38,7 +38,6 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	>=app-eselect/eselect-opengl-1.3.1
 	>=dev-cpp/sparsehash-1.5
-	!<sys-devel/gcc-4.7
 "
 
 PATCHES=(
@@ -53,6 +52,13 @@ QA_TEXTRELS="usr/lib32/pcsx2/*"
 
 clean_locale() {
 	rm -Rf "${S}"/locales/"${1}" || die
+}
+
+pkg_setup() {
+	if [[ ${MERGE_TYPE} != binary ]] && [[ $(tc-getCC) =~ gcc ]] && [[ $(gcc-version) < 4.7 ]] ; then
+		eerror "${PN} does not compile with gcc less than 4.7"
+		die "${PN} does not compile with gcc less than 4.7"
+	fi
 }
 
 src_prepare() {
