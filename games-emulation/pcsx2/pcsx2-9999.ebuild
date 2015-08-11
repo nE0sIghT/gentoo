@@ -59,9 +59,7 @@ pkg_setup() {
 src_prepare() {
 	cmake-utils_src_prepare
 
-	ebegin "Cleaning up locales..."
 	l10n_for_each_disabled_locale_do clean_locale
-	eend $?
 
 	epatch_user
 }
