@@ -100,11 +100,3 @@ src_configure() {
 	WX_GTK_VER="3.0" need-wxwidgets unicode
 	cmake-utils_src_configure
 }
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_install() {
-	cmake-utils_src_install
-}
