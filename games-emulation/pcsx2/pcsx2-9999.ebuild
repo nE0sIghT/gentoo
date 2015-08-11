@@ -87,11 +87,11 @@ src_configure() {
 		-DXDG_STD=TRUE
 
 		-DCMAKE_INSTALL_PREFIX=/usr
-		-DCMAKE_LIBRARY_PATH=/usr/$(get_libdir)/"${PN}"
+		-DCMAKE_LIBRARY_PATH="/usr/$(get_libdir)/${PN}"
 		-DDOC_DIR=/usr/share/doc/"${PF}"
 		-DEGL_API=FALSE
 		-DGTK3_API=FALSE
-		-DPLUGIN_DIR=/usr/$(get_libdir)/"${PN}"
+		-DPLUGIN_DIR="/usr/$(get_libdir)/${PN}"
 		# wxGTK must be built against same sdl version
 		-DSDL2_API=FALSE
 		-DWX28_API=FALSE
