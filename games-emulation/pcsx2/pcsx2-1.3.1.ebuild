@@ -45,9 +45,6 @@ PATCHES=(
 
 )
 
-# Upstream issue: https://github.com/PCSX2/pcsx2/issues/417
-QA_TEXTRELS="usr/lib32/pcsx2/*"
-
 clean_locale() {
 	rm -R "${S}"/locales/"${1}" || die
 }
@@ -104,4 +101,11 @@ src_configure() {
 
 	WX_GTK_VER="3.0" need-wxwidgets unicode
 	cmake-utils_src_configure
+}
+
+src_install() {
+	# Upstream issue: https://github.com/PCSX2/pcsx2/issues/417
+	QA_TEXTRELS="usr/$(get_libdir)/pcsx2/*"
+
+	cmake-utils_src_install
 }
