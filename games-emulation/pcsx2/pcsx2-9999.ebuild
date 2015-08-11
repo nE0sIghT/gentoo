@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/PCSX2/pcsx2.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="png +wxwidgets3"
+IUSE="png"
 
 RDEPEND="
 	app-arch/bzip2[abi_x86_32(-)]
@@ -31,9 +31,7 @@ RDEPEND="
 	x11-libs/libICE[abi_x86_32(-)]
 	x11-libs/libX11[abi_x86_32(-)]
 	x11-libs/libXext[abi_x86_32(-)]
-
-	!wxwidgets3? ( x11-libs/wxGTK:2.8[abi_x86_32(-),X] )
-	wxwidgets3? ( x11-libs/wxGTK:3.0[abi_x86_32(-),X] )
+	x11-libs/wxGTK:3.0[abi_x86_32(-),X]
 "
 # Ensure no incompatible headers from eselect-opengl are installed, bug #510730
 DEPEND="${RDEPEND}
@@ -96,16 +94,10 @@ src_configure() {
 		-DPLUGIN_DIR=/usr/$(get_libdir)/"${PN}"
 		# wxGTK must be built against same sdl version
 		-DSDL2_API=FALSE
-
-		$(cmake-utils_useno wxwidgets3 WX28_API)
+		-DWX28_API=FALSE
 	)
 
-	local WX_GTK_VER="3.0"
-	if ! use wxwidgets3; then
-		WX_GTK_VER="2.8"
-	fi
-
-	need-wxwidgets unicode
+	WX_GTK_VER="3.0" need-wxwidgets unicode
 	cmake-utils_src_configure
 }
 
