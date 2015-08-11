@@ -48,9 +48,11 @@ clean_locale() {
 }
 
 pkg_setup() {
-	if [[ ${MERGE_TYPE} != binary ]] && [[ $(tc-getCC) =~ gcc ]] && [[ $(gcc-version) < 4.8 ]] ; then
-		eerror "${PN} does not compile with gcc less than 4.8"
-		die "${PN} does not compile with gcc less than 4.8"
+	if [[ ${MERGE_TYPE} != binary && $(tc-getCC) == *gcc* ]]; then
+		if [[ $(gcc-major-version) -lt 4 || $(gcc-major-version) == 4 && $(gcc-minor-version) -lt 8 ]] ; then
+			eerror "${PN} does not compile with gcc less than 4.8"
+			die "${PN} does not compile with gcc less than 4.8"
+		fi
 	fi
 }
 
