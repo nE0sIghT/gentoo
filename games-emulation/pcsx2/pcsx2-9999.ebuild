@@ -5,7 +5,7 @@
 EAPI=5
 PLOCALES="ar_SA ca_ES cs_CZ de_DE es_ES fi_FI fr_FR hr_HR hu_HU id_ID it_IT ja_JP ko_KR ms_MY nb_NO pl_PL pt_BR ru_RU sv_SE th_TH tr_TR zh_CN zh_TW"
 
-inherit cmake-utils git-r3 l10n multilib toolchain-funcs wxwidgets
+inherit cmake-utils eutils git-r3 l10n multilib toolchain-funcs wxwidgets
 
 DESCRIPTION="A PlayStation 2 emulator"
 HOMEPAGE="http://www.pcsx2.net"
